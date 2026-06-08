@@ -1,4 +1,4 @@
-import { getPopularMovies } from "@/app/lib/tmdb";
+import { getPopularMovies } from "@/app/lib/tmdb/movie";
 
 export async function GET() {
 

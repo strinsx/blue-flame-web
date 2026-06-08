@@ -1,4 +1,4 @@
-import { searchbyID } from "@/app/lib/tmdb";
+import { searchbyID } from "@/app/lib/tmdb/movie";
 
 
 export async function GET(){

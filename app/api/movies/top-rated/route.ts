@@ -1,5 +1,5 @@
 
-import { getTopRated } from "@/app/lib/tmdb"
+import { getTopRated } from "@/app/lib/tmdb/movie"
 
 export async function GET(){
     try {

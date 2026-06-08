@@ -1,16 +1,16 @@
 
-import { nowPlaying } from "@/app/lib/tmdb";
+import { getTrendingTV } from "@/app/lib/tmdb/tv";
 
 export async function GET() {
 
     try {
 
-        return Response.json(await nowPlaying());
+        return Response.json(await getTrendingTV());
         
     } catch (error) {
 
         return Response.json(
-            {error: 'failed to fetch'},
+            {error: 'Failed to fetch'},
             {status: 500}
         )
         

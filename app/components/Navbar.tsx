@@ -25,7 +25,8 @@ export function Navbar() {
 
         <div className="flex items-center gap-6">
           <Link href="/">Home</Link>
-          <Link href="/genre">Genre</Link>
+          <Link href="/genre">Movies</Link>
+          <Link href="/genre">TV Shows</Link>
         </div>
       </div>
 

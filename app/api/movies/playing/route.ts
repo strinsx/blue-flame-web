@@ -1,17 +1,16 @@
 
-
-import { Trending } from "@/app/lib/tmdb";
+import { nowPlaying } from "@/app/lib/tmdb/movie";
 
 export async function GET() {
 
     try {
 
-        return Response.json(await Trending())
+        return Response.json(await nowPlaying());
         
     } catch (error) {
 
         return Response.json(
-            {error: 'Failed to fetch'},
+            {error: 'failed to fetch'},
             {status: 500}
         )
         

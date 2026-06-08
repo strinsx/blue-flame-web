@@ -1,5 +1,5 @@
 
-import { getSimilar } from "@/app/lib/tmdb"
+import { getSimilar } from "@/app/lib/tmdb/movie"
 
 export async function GET(){
     try {
