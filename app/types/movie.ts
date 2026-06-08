@@ -6,6 +6,7 @@ export interface Movie {
     overview: string,
     popularity: number,
     vote_average: number,
+    media_type: string,
     poster_path: string,
     release_date: string,
 }
@@ -18,5 +19,6 @@ export interface Carousel {
     overview: string,
     popularity: number,
     backdrop_path: string,
+    media_type: string,
     
 }
