@@ -22,20 +22,21 @@ export async function getGenres() {
 }
 
 export async function getSimilar(movieId: number) {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`) 
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`)
 
-        //MOCK DATA MOVIEID STILL 550
+    //MOCK DATA MOVIEID STILL 550
 
-        const data = await response.json();
-        return (data);
+    const data = await response.json();
+    return data.results; // 👈 add .results
 }
 
 export async function getDetails(movieId: number) {
 
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US';`)
-    return await response.json();
+    const data = await response.json();
+    return data; // 👈 make sure this is here
 
-}   
+}
 
 export async function searchbyID() {
 
@@ -58,9 +59,9 @@ export async function nowPlaying() {
 
 export async function Trending() {
 
-        const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`)
-        const data = await response.json();
-        return (data);
+    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`)
+    const data = await response.json();
+    return (data);
 
 }
 
