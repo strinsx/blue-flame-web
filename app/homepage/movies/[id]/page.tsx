@@ -1,11 +1,12 @@
 // No "use client"
-import { getDetails } from "@/app/lib/tmdb/movie";
+import { getDetails, getSimilar } from "@/app/lib/tmdb/movie";
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { VideoPlayer } from "@/app/components/details/moviedetails/VideoPlayer";
 import { MovieInfo } from "@/app/components/details/moviedetails/MovieInfo";
 import { SimilarMovies } from "@/app/components/details/moviedetails/SimilarMovies";
 import { MovieDetailsInfo } from "@/app/components/details/moviedetails/CastInfo";
+
 
 export default async function MoviePage({
   params,
@@ -14,6 +15,7 @@ export default async function MoviePage({
 }) {
   const { id } = await params;
   const movie = await getDetails(Number(id));
+  const similar = await getSimilar(Number(id));
 
   return (
     <div className="flex flex-col w-[70%] mx-auto min-h-screen">
@@ -29,6 +31,7 @@ export default async function MoviePage({
           title={movie.title}
           release_date={movie.release_date}
           backdrop_path={movie.backdrop_path}
+          id={movie.id}
         />
 
         <div className="flex justify-between mt-10">
@@ -63,8 +66,8 @@ export default async function MoviePage({
 
           {/* Right — fixed width similar to screenshot */}
           <div className="w-[600px] flex-shrink-0">
-            {/*                             <SimilarMovies movies={mockSimilar} />
- */}                        </div>
+            <SimilarMovies movies={similar} />
+          </div>
         </div>
 
       </div>
