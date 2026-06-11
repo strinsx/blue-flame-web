@@ -39,7 +39,7 @@ export function VideoPlayer({ title, release_date, backdrop_path, id }: Props) {
             ) : (
                 <iframe
                     className="w-full h-full"
-                    src={`https://vidsrc-embed.ru/embed/movie?tmdb=${id}&sub_url=https%3A%2F%2Fvidsrc.me%2Fsample.srt&autoplay=1`}
+                    src={`https://vsembed.ru/embed/movie?tmdb=${id}&sub_url=https%3A%2F%2Fvidsrc.me%2Fsample.srt&autoplay=1`}
                     allow="autoplay; fullscreen"
                     allowFullScreen
                 />
