@@ -77,7 +77,7 @@ export function MoviePanel() {
                         className="flex gap-4"
                     >
                         {movie.map((m, index) => (
-                            <Link href={`/homepage/movies/${m.id}`}
+                            <Link href={`/homepage/movies/${m.id}/onboarding`}
                             key={m.id}
                             >
 
