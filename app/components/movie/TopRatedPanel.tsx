@@ -33,7 +33,7 @@ export function TopRatedPanel() {
                 {rated.slice(0, 14).map((m, index) => (
 
 
-                    <Link href={`/homepage/movies/${m.id}`} key={m.id}>
+                    <Link href={`/homepage/movies/${m.id}/onboarding`} key={m.id}>
 
                         <motion.div
                             key={m.id}
