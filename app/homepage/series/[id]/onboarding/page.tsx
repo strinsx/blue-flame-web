@@ -1,9 +1,10 @@
 
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
-import { getDetails, getSimilar } from "@/app/lib/tmdb/tv";
-import { SeriesHeader } from "@/app/components/series/details/onboarding/Seriesheader";
+import { VideoPlayer } from "@/app/components/details/moviedetails/VideoPlayer";
 import { SimilarSeriesGrid } from "@/app/components/series/details/onboarding/Similarseriesgrid";
+import { SeriesHeader } from "@/app/components/series/details/onboarding/Seriesheader";
+import { getDetails, getSimilar } from "@/app/lib/tmdb/tv";
 
 
 
@@ -16,7 +17,7 @@ export default async function OnboardingPage({
 
    const [series, similar] = await Promise.all([
     getDetails(Number(id)),
-    getSimilar(Number(id))
+    getSimilar(Number(id)),
   ]);
 
   return(
@@ -24,23 +25,24 @@ export default async function OnboardingPage({
     <div className="flex flex-col w-full md:w-[85%] lg:w-[70%] mx-auto min-h-screen">
       <Navbar />
 
-      <SeriesHeader
+        <SeriesHeader 
+
         id={series.id}
         name={series.name}
+        tagline={series.tagline}
         overview={series.overview}
         poster_path={series.poster_path}
+        backdrop_path={series.backdrop_path}
         first_air_date={series.first_air_date}
         vote_average={series.vote_average}
         vote_count={series.vote_count}
         genres={series.genres}
-        backdrop_path={series.backdrop_path}
         number_of_episodes={series.number_of_episodes}
         number_of_seasons={series.number_of_seasons}
-      />
-
-        <SimilarSeriesGrid 
-            series={similar}
+        
         />
+    
+      <SimilarSeriesGrid series={similar} />
 
       <footer>
         <Footer />
