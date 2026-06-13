@@ -42,9 +42,7 @@ export async function getSimilar(id: number) {
     return (data.results);
 }
 
-
-export async function getEpisodesGroup(id: number) {
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/episodes_groups?api_key=${API_KEY}&language=en-US&page=1`)
-    const data = await response.json();
-    return (data.results);
+export async function getSeasonDetail( tvId: number, seasonNumber: number ) {
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${tvId}/season/${seasonNumber}?api_key=${API_KEY}`)
+    return await response.json()
 }
